@@ -3,6 +3,7 @@ package com.movietime.model;
 import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,22 +23,18 @@ public class MovieTickets {
     @Column(name = "ticketId", unique = true)
     private int ticketId;
 
-    @JsonBackReference
-    @ManyToOne // Each ticket is associated with one movie
+    @ManyToOne 
     @JoinColumn(name = "movieId")
     private Movie movie;
 
     @Column(name = "showTime")
     private String showTime;
 
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
 
-  /*  @ManyToOne
-    @JoinColumn(name = "theatreId")
-    private Theatres theatre;*/
+  
 
     
 }

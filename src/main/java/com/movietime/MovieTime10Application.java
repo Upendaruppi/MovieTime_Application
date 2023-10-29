@@ -9,5 +9,9 @@ public class MovieTime10Application {
 
     public static void main(String[] args) {
         SpringApplication.run(MovieTime10Application.class, args);
+        System.out.println("MovieTime");
+        System.out.println("Experience the cinematic universe.");
+
     }
+    
 }

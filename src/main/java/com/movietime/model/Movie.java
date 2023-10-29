@@ -3,6 +3,7 @@ package com.movietime.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -52,16 +53,12 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @JsonBackReference
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<MovieTickets> movieTickets;
+    
 
-   /* @ManyToMany
-    @JoinTable(
-        name = "movie_theatres",
-        joinColumns = @JoinColumn(name = "movieId"),
-        inverseJoinColumns = @JoinColumn(name = "theatreId")
-    )
-    private List<Theatres> theatres;*/
+   
 
 }
