@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,21 +22,32 @@ import com.movietime.repository.MovieTicketsJpaRepository;
 import com.movietime.service.UserJpaService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/user")
 public class UserController {
 
 	@Autowired 
 	private UserJpaService userJpaService;
 	
+
 	@PostMapping("/login")
-	public User userLogin(@RequestBody Map<String, String> request) {
-	    String email = request.get("email");
-	    String password = request.get("password");
-		return userJpaService.userLogin(email, password) ;
-	    
-	    
+	public ResponseEntity<Object> userLogin(@RequestBody UserAccess userAccess) {
+	    System.out.println("Received login request: " + userAccess.getEmail() + " - " + userAccess.getPassword());
+
+	    String email = userAccess.getEmail();
+	    String password = userAccess.getPassword();
+
+	    User user = userJpaService.userLogin(email, password);
+
+	    if (user != null) {
+	        return ResponseEntity.ok(user); 
+	    } else {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed"); // Return an error if login fails
+	    }
 	}
+
 	
+
 	@PostMapping("/add")
 	public User newUser(@RequestBody User user) {
 	    return userJpaService.newUser(user);

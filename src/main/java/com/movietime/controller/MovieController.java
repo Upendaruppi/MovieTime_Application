@@ -7,6 +7,8 @@ import com.movietime.service.MovieJpaService;
 import java.util.List;
 
 @RestController
+@CrossOrigin
+
 @RequestMapping("/movie")
 public class MovieController {
 
@@ -18,7 +20,7 @@ public class MovieController {
         return movieJpaService.addMovie(movie);
     }
 
-    @GetMapping("/getmovies")
+    @GetMapping("/get")
     public List<Movie> getMovies() {
         return movieJpaService.getMovies();
     }
