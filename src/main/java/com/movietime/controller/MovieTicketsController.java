@@ -19,7 +19,7 @@ public class MovieTicketsController {
     private MovieTicketsJpaService movieTicketsJpaService;
 
     @PostMapping("/buy")
-    public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequest request) {
+    public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequestDTO request) {
         return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime());
     }
 

@@ -1,6 +1,6 @@
 package com.movietime.controller;
 
-public class TicketPurchaseRequest {
+public class TicketPurchaseRequestDTO {
 
 	
 	  private int userId;

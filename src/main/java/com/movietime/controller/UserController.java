@@ -31,7 +31,7 @@ public class UserController {
 	
 
 	@PostMapping("/login")
-	public ResponseEntity<Object> userLogin(@RequestBody UserAccess userAccess) {
+	public ResponseEntity<Object> userLogin(@RequestBody UserAccessDTO userAccess) {
 	    System.out.println("Received login request: " + userAccess.getEmail() + " - " + userAccess.getPassword());
 
 	    String email = userAccess.getEmail();

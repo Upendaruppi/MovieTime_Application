@@ -1,14 +1,14 @@
 package com.movietime.controller;
-public class UserAccess {
+public class UserAccessDTO {
     private String email;
     private String password;
 
 
-    public UserAccess() {
+    public UserAccessDTO() {
         // Default constructor
     }
 
-    public UserAccess(String email, String password) {
+    public UserAccessDTO(String email, String password) {
         this.email = email;
         this.password = password;
     }
