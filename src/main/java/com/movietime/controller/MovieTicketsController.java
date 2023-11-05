@@ -1,5 +1,6 @@
 package com.movietime.controller;
 
+import com.movietime.DTO.TicketPurchaseRequestDTO;
 import com.movietime.model.Movie;
 import com.movietime.model.MovieTickets;
 import com.movietime.repository.MovieTicketsJpaRepository;
@@ -13,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/movietickets")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MovieTicketsController {
 
     @Autowired
@@ -20,12 +22,20 @@ public class MovieTicketsController {
 
     @PostMapping("/buy")
     public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequestDTO request) {
-        return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime());
+        System.out.println(request.getShowTime());
+    	return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime());
     }
 
     
     @GetMapping("/{userId}")
     public List<MovieTickets> getMovieTicketsByUserId(@PathVariable int userId) {
-        return movieTicketsJpaService.getMovieTicketsByUserId(userId);
+    	System.out.println("Received userId: " + userId);
+
+        List<MovieTickets> movieTickets = movieTicketsJpaService.getMovieTicketsByUserId(userId);
+        
+        System.out.println("Response Body: " + movieTickets);
+    	
+    	return movieTicketsJpaService.getMovieTicketsByUserId(userId);
     }
+
 }

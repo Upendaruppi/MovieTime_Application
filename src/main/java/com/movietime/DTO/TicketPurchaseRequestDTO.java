@@ -1,4 +1,4 @@
-package com.movietime.controller;
+package com.movietime.DTO;
 
 public class TicketPurchaseRequestDTO {
 

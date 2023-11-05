@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movietime.DTO.UserAccessDTO;
 import com.movietime.model.MovieTickets;
 import com.movietime.model.User;
 import com.movietime.repository.MovieTicketsJpaRepository;
@@ -31,19 +32,15 @@ public class UserController {
 	
 
 	@PostMapping("/login")
-	public ResponseEntity<Object> userLogin(@RequestBody UserAccessDTO userAccess) {
+	public User userLogin(@RequestBody UserAccessDTO userAccess) {
 	    System.out.println("Received login request: " + userAccess.getEmail() + " - " + userAccess.getPassword());
 
 	    String email = userAccess.getEmail();
 	    String password = userAccess.getPassword();
 
 	    User user = userJpaService.userLogin(email, password);
-
-	    if (user != null) {
-	        return ResponseEntity.ok(user); 
-	    } else {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed"); // Return an error if login fails
-	    }
+	    
+	    return user;
 	}
 
 	

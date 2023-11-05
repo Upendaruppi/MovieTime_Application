@@ -1,4 +1,4 @@
-package com.movietime.controller;
+package com.movietime.DTO;
 public class UserAccessDTO {
     private String email;
     private String password;
