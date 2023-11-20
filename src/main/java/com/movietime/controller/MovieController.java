@@ -48,5 +48,6 @@ public class MovieController {
     @DeleteMapping("/delete/{movieId}")
     public void deleteMovie(@PathVariable int movieId) {
         movieJpaService.deleteMovie(movieId);
+        
     }
 }

@@ -30,6 +30,7 @@ public class AdminController {
     	String password=adminDTO.getPassword();
     	String role=adminDTO.getRole();
         return adminJpaService.adminLogin(email, password, role);
+   
     }
 
     @PostMapping("/add")

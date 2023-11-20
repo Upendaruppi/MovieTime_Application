@@ -41,6 +41,7 @@ public class UserController {
 	    User user = userJpaService.userLogin(email, password);
 	    
 	    return user;
+	    
 	}
 
 	

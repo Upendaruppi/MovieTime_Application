@@ -13,6 +13,7 @@ public class MovieDTO {
     private String posterLink;
 
 	    public String getMovieName() {
+	    	
 		return movieName;
 	}
 

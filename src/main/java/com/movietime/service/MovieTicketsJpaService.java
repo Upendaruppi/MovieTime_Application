@@ -33,13 +33,16 @@ public class MovieTicketsJpaService {
         User user = userJpaRepository.findByUserId(userId);
         if (user == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with provided userId: " + userId);
+       
         }
         
         
         
         Movie movie = movieJpaRepository.findByMovieId(movieId);
         if (movie == null) {
+        	
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found with provided movieId: " + movieId);
+       
         }
         MovieTickets movieTicket = new MovieTickets();
         movieTicket.setUser(user);
@@ -49,9 +52,11 @@ public class MovieTicketsJpaService {
         movieTicket.setDate(date);
        
         return movieTicketsJpaRepository.save(movieTicket);
+        
     }
     
     public List<MovieTickets> getMovieTicketsByUserId(int userId) {
+    	
       return  movieTicketsJpaRepository.findByUser_UserId(userId);
 
     }

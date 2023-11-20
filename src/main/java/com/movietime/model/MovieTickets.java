@@ -38,11 +38,13 @@ public class MovieTickets {
     @Column(name = "theatre")
     private String theatre;
 
+    
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
 
   
 
+    
     
 }

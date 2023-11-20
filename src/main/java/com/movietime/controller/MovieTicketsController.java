@@ -36,6 +36,7 @@ public class MovieTicketsController {
         System.out.println("Response Body: " + movieTickets);
     	
     	return movieTicketsJpaService.getMovieTicketsByUserId(userId);
+    
     }
     
     @DeleteMapping("/delete/{ticketId}")

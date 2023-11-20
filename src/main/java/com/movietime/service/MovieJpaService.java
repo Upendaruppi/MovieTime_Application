@@ -16,23 +16,29 @@ public class MovieJpaService {
     private MovieJpaRepository movieJpaRepository;
 
     public Movie addMovie(Movie movie) {
+    	
     	return movieJpaRepository.save(movie);
     	
     }
 
     public List<Movie> getMovies() {
+    	
         return movieJpaRepository.findAll();
     }
 
     public Movie getMovieByName(String movieName) {
+    	
         return movieJpaRepository.findByMovieName(movieName);
     }
     
     
+    
     public Movie updateMovie(MovieDTO movieDTO, int id) {
+    	
         Optional<Movie> optionalMovie = movieJpaRepository.findById(id);
 
         if (optionalMovie.isPresent()) {
+        	
             Movie movieToUpdate = optionalMovie.get();
 
             if (movieDTO.getMovieName() != null) {
@@ -49,14 +55,19 @@ public class MovieJpaService {
         } else {
             throw new RuntimeException("Movie with ID " + id + " not found");
         }
+        
     }
     
     
     public void deleteMovie(int movieId) {
+    	
         movieJpaRepository.deleteById(movieId);
+        
     }
 
 	public Movie getMovieById(int id) {
+		
 		return movieJpaRepository.findByMovieId(id) ;
+		
 	}
 }
