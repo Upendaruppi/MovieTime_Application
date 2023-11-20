@@ -17,8 +17,8 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:4200")
 public class MovieTicketsController {
 
-    @Autowired
-    private MovieTicketsJpaService movieTicketsJpaService;
+     @Autowired
+     private MovieTicketsJpaService movieTicketsJpaService;
 
     @PostMapping("/buy")
     public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequestDTO request) {
