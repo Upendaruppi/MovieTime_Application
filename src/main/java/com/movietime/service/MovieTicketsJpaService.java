@@ -29,7 +29,7 @@ public class MovieTicketsJpaService {
 
     
     @Transactional
-    public MovieTickets buyTicketByUserId(int userId, int movieId, String showTime) {
+    public MovieTickets buyTicketByUserId(int userId, int movieId, String showTime, String theatre, String date) {
         User user = userJpaRepository.findByUserId(userId);
         if (user == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with provided userId: " + userId);
@@ -44,7 +44,9 @@ public class MovieTicketsJpaService {
         MovieTickets movieTicket = new MovieTickets();
         movieTicket.setUser(user);
         movieTicket.setMovie(movie);
+        movieTicket.setTheatre(theatre);;
         movieTicket.setShowTime(showTime);
+        movieTicket.setDate(date);
        
         return movieTicketsJpaRepository.save(movieTicket);
     }
@@ -52,6 +54,12 @@ public class MovieTicketsJpaService {
     public List<MovieTickets> getMovieTicketsByUserId(int userId) {
       return  movieTicketsJpaRepository.findByUser_UserId(userId);
 
+    }
+    
+    public void deleteTicket(int ticketId) {
+    	
+    	movieTicketsJpaRepository.deleteById(ticketId);
+    	
     }
 
 }

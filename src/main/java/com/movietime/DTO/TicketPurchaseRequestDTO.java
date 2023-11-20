@@ -6,8 +6,26 @@ public class TicketPurchaseRequestDTO {
 	  private int userId;
       private int movieId;
       private String showTime;
+      private String theatre;
+      private String date;
 
-      public int getUserId() {
+      public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getTheatre() {
+		return theatre;
+	}
+
+	public void setTheatre(String theatre) {
+		this.theatre = theatre;
+	}
+
+	public int getUserId() {
           return userId;
       }
 

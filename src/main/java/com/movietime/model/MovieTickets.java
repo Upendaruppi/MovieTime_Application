@@ -1,5 +1,6 @@
 package com.movietime.model;
 
+import java.util.Date;
 import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -26,9 +27,16 @@ public class MovieTickets {
     @ManyToOne 
     @JoinColumn(name = "movieId")
     private Movie movie;
-
+    
+    
+    @Column(name = "date")
+    private String date;
+    
     @Column(name = "showTime")
     private String showTime;
+    
+    @Column(name = "theatre")
+    private String theatre;
 
     @ManyToOne
     @JoinColumn(name = "userId")

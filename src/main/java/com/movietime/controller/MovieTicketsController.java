@@ -22,8 +22,8 @@ public class MovieTicketsController {
 
     @PostMapping("/buy")
     public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequestDTO request) {
-        System.out.println(request.getShowTime());
-    	return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime());
+        System.out.println(request.getTheatre());
+    	return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime(), request.getTheatre(), request.getDate());
     }
 
     
@@ -37,5 +37,13 @@ public class MovieTicketsController {
     	
     	return movieTicketsJpaService.getMovieTicketsByUserId(userId);
     }
+    
+    @DeleteMapping("/delete/{ticketId}")
+    public void deleteTicket(@PathVariable int ticketId) {
+    	
+    	movieTicketsJpaService.deleteTicket(ticketId);
+    	
+    }
+    
 
 }

@@ -2,12 +2,14 @@ package com.movietime.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.movietime.DTO.MovieDTO;
 import com.movietime.model.Movie;
 import com.movietime.service.MovieJpaService;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RequestMapping("/movie")
 public class MovieController {
@@ -24,10 +26,23 @@ public class MovieController {
     public List<Movie> getMovies() {
         return movieJpaService.getMovies();
     }
-
-    @GetMapping("/{moviename}")
-    public Movie findByMovieName(@PathVariable String movieName) {
+    @GetMapping("/name/{movieName}")
+    public Movie findByMovieName(@PathVariable("movieName") String movieName) {
+        System.out.println("Received movie name: " + movieName);
         return movieJpaService.getMovieByName(movieName);
+    }
+
+
+    
+    @GetMapping("/id/{id}")
+    public Movie getMovieById(@PathVariable int id) {
+        return movieJpaService.getMovieById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public Movie updateMovie(@PathVariable int id , @RequestBody MovieDTO movie) {
+    	
+    	return movieJpaService.updateMovie(movie, id);
     }
 
     @DeleteMapping("/delete/{movieId}")
