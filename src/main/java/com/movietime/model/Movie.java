@@ -35,6 +35,7 @@ public class Movie {
     @Column(name = "movieId")
     private int movieId;
 
+    
     @Column(name = "movieName")
     private String movieName;
 

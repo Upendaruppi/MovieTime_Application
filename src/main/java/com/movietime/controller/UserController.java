@@ -48,7 +48,9 @@ public class UserController {
 
 	@PostMapping("/add")
 	public User newUser(@RequestBody User user) {
+		
 	    return userJpaService.newUser(user);
+
 	}
 
 

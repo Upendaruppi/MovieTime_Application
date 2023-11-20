@@ -24,6 +24,7 @@ public class TicketPurchaseRequestDTO {
 	public void setTheatre(String theatre) {
 		
 		this.theatre = theatre;
+	
 	}
 
 	public int getUserId() {

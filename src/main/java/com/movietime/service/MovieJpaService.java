@@ -15,17 +15,20 @@ public class MovieJpaService {
     @Autowired
     private MovieJpaRepository movieJpaRepository;
 
+    
     public Movie addMovie(Movie movie) {
     	
     	return movieJpaRepository.save(movie);
     	
     }
 
+    
     public List<Movie> getMovies() {
     	
         return movieJpaRepository.findAll();
     }
 
+    
     public Movie getMovieByName(String movieName) {
     	
         return movieJpaRepository.findByMovieName(movieName);

@@ -13,7 +13,8 @@ import com.movietime.repository.UserJpaRepository;
 import jakarta.transaction.Transactional;
 @Service
 public class UserJpaService {
-    @Autowired
+   
+	@Autowired
     private UserJpaRepository userJpaRepository;
 
     public User userLogin(String email, String password) {

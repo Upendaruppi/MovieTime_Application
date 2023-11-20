@@ -19,6 +19,7 @@ public interface MovieTicketsJpaRepository extends JpaRepository<MovieTickets, I
 		return null;
 	}
 
+	
 	List<MovieTickets> findByUser_UserId(int userId);
 
 }

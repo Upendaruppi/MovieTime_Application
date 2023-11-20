@@ -18,6 +18,7 @@ public interface UserJpaRepository extends JpaRepository<User, Integer> {
     User findByUserId(int userId);
 
     List<MovieTickets> getMovieTicketsByUserId(int userId);
+    
 }
 
 

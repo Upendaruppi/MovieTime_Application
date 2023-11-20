@@ -30,7 +30,8 @@ public class MovieTicketsJpaService {
     
     @Transactional
     public MovieTickets buyTicketByUserId(int userId, int movieId, String showTime, String theatre, String date) {
-        User user = userJpaRepository.findByUserId(userId);
+     
+    	User user = userJpaRepository.findByUserId(userId);
         if (user == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with provided userId: " + userId);
        

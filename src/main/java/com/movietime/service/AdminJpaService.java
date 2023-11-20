@@ -32,6 +32,7 @@ public class AdminJpaService {
                 if (admin.getPassword().equals(password) && admin.getRole().equals(role)) {
                     return admin;
                 } else {
+                	
                     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
                 }
             } else {

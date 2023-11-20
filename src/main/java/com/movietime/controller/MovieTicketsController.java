@@ -24,6 +24,7 @@ public class MovieTicketsController {
     public MovieTickets buyTicketByUserId(@RequestBody TicketPurchaseRequestDTO request) {
         System.out.println(request.getTheatre());
     	return movieTicketsJpaService.buyTicketByUserId(request.getUserId(), request.getMovieId(), request.getShowTime(), request.getTheatre(), request.getDate());
+   
     }
 
     

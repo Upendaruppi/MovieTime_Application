@@ -15,7 +15,8 @@ public class MovieDTO {
 	    public String getMovieName() {
 	    	
 		return movieName;
-	}
+	
+	    }
 
 
 	public void setMovieName(String movieName) {

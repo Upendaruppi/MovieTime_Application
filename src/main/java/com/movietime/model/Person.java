@@ -14,6 +14,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @MappedSuperclass
 public class Person {
+	
+	
     @Column(name = "name")
     private String name;
 

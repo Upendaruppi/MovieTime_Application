@@ -9,5 +9,7 @@ import com.movietime.model.Admin;
 
 @Repository
 public interface AdminJpaRepository extends JpaRepository<Admin, Integer> {
+	
      Optional<Admin> findByEmail(String email);
+     
 }

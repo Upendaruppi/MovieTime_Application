@@ -6,6 +6,8 @@ import com.movietime.model.Movie;
 
 @Repository
 public interface MovieJpaRepository extends JpaRepository<Movie, Integer> {
-    Movie findByMovieName(String movieName);
+ 
+	Movie findByMovieName(String movieName);
 	Movie findByMovieId(int movieId);
+	
 }

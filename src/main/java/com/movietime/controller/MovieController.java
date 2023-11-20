@@ -43,6 +43,7 @@ public class MovieController {
     public Movie updateMovie(@PathVariable int id , @RequestBody MovieDTO movie) {
     	
     	return movieJpaService.updateMovie(movie, id);
+   
     }
 
     @DeleteMapping("/delete/{movieId}")

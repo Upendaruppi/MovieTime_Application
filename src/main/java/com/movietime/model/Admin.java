@@ -33,7 +33,6 @@ public class Admin extends Person {
     @Column(name = "role")
     private String role;
 
-    // Constructors, getters, setters, and other methods
 
     @Override
     public String toString() {
